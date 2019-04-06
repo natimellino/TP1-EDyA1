@@ -8,7 +8,7 @@ typedef struct {
 //typedef Persona *PersonaList
 
 typedef struct _GNodo{
-  void* dato;
+  Persona* dato;
   struct _GNodo *sig;
 } GNodo;
 
@@ -47,7 +47,7 @@ int glist_vacia(GList lista);
 /**
  * Agrega un elemento al inicio de la lista.
  */
-GList glist_agregar_inicio(GList lista, Persona dato);
+GList glist_agregar_inicio(GList lista, Persona* dato);
 
 /**
  * Recorrido de la lista, utilizando la funcion pasada.

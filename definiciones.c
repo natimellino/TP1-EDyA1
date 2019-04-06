@@ -13,7 +13,7 @@ GList glist_crear() {
 /*GList map(GList lista, Funcion f, Copia c){
 
 }*/
-GList glist_agregar_inicio(GList lista, Persona p) {
+GList glist_agregar_inicio(GList lista, Persona* p) {
   GNodo *nuevoNodo = malloc(sizeof(GNodo));
   nuevoNodo->dato = p;
   nuevoNodo->sig = lista;
@@ -24,10 +24,13 @@ GList lectura_archivo(){
   FILE * fp;
 	fp = fopen("personas.txt", "r");
   GList ListaDePersonas=glist_crear();
+  int i=0;
   while (!feof(fp)){
-    Persona p=malloc(sizeof(Persona));
-    fscanf(fp,"%s,%d,%s",p.nombre,p.edad,p.lugarDeNacimiento);
+    Persona* p = malloc(sizeof(Persona*));
+    fscanf(fp,"%s,%d,%s",p->nombre,&p->edad,p->lugarDeNacimiento);
     ListaDePersonas=glist_agregar_inicio(ListaDePersonas,p);
+    printf("%d\n", i);
+    i++;
   }
 
   return ListaDePersonas;
