@@ -29,8 +29,6 @@ GList lectura_archivo(){
     Persona* p = malloc(sizeof(Persona*));
     fscanf(fp,"%s,%d,%s",p->nombre,&p->edad,p->lugarDeNacimiento);
     ListaDePersonas=glist_agregar_inicio(ListaDePersonas,p);
-    printf("%d\n", i);
-    i++;
   }
 
   return ListaDePersonas;
